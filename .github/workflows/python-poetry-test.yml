@@ -35,3 +35,7 @@ jobs:
       - name: Run tests
         run: ./scripts/run_tests.sh
         working-directory: conversions_service
+
+      - name: Test Coverage
+        run: ./scripts/run_test_coverage.sh
+        working-directory: conversions_service
