@@ -30,7 +30,8 @@ jobs:
 
       - name: Install dependencies
         run: poetry install
-
+        working-directory: devcypher_toolbox/conversions_service
+      
       - name: Run tests
         run: poetry run pytest devcypher_toolbox/conversions_service/tests/test_init.py
 
