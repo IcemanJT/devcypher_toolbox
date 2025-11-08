@@ -12,4 +12,4 @@ The application will be available at: `http://localhost:8080`
 ## Running Tests
 ```bash
 poetry run pytest
-```" > README.md
+```
