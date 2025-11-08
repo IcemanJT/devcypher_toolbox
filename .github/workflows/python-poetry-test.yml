@@ -33,5 +33,5 @@ jobs:
         working-directory: conversions_service
 
       - name: Run tests
-        run: poetry run pytest tests/test_init.py
+        run: ./scripts/run_tests.sh
         working-directory: conversions_service
