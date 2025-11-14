@@ -34,11 +34,11 @@ def decode():
     raise NotImplementedError
 
 @app.route('/encode/ciphers_list', methods=['GET'])
-def encode():
+def encode_ciphers_list():
     return enc.available_ciphers
 
 @app.route('/decode/ciphers_list', methods=['GET'])
-def decode():
+def decode_ciphers_list():
     raise NotImplementedError
 
 app.run(host='0.0.0.0', port=8080)

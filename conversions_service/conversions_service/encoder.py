@@ -1,3 +1,5 @@
+import base64
+
 class Encoder:
     _instance = None
     
@@ -14,7 +16,7 @@ class Encoder:
     def available_ciphers(self):
         return ["cesar", "atbash", "rot13", "base64"]
 
-    def caesar(slef, text: str, key: str):
+    def cesar(slef, text: str, key: str):
         shift = int(key)
 
         result = ""
@@ -40,7 +42,7 @@ class Encoder:
         return result
 
     def rot13(self, text, key = None):
-        return caesar_cipher(text, 13)
+        return self.cesar(text, 13)
 
     def base64(self, text, key = None):
         return base64.b64encode(text.encode()).decode()
