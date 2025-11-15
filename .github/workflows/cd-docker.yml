@@ -25,11 +25,10 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build and push Docker image
-      # image: ghcr.io/<owner>/<image-name>:<tag>
         uses: docker/build-push-action@v6
         with:
           context: ./conversions_service
           push: true
           tags: |
-            ghcr.io/${{ github.repository_owner }}/conversions_service:latest
-            ghcr.io/${{ github.repository_owner }}/conversions_service:${{ github.sha }}
+            ghcr.io/icemanjt/conversions_service:latest
+            ghcr.io/icemanjt/conversions_service:${{ github.sha }}
