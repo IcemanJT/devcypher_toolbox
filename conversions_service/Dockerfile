@@ -13,8 +13,7 @@ ENV PATH="/root/.local/bin:${PATH}"
 
 COPY pyproject.toml ./
 COPY conversions_service ./conversions_service
-COPY scripts ./conversions_service/scripts
-
+COPY scripts ./
 RUN poetry install --no-root --without dev
 
 ENV PORT=8000
