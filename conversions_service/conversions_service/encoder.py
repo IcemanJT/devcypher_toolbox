@@ -16,8 +16,8 @@ class Encoder:
     def available_ciphers(self):
         return ["cesar", "atbash", "rot13", "base64"]
 
-    def cesar(slef, text: str, key: str):
-        shift = int(key)
+    def cesar(self, text: str, key: str):
+        shift = int(key) #using key argument as shift value
 
         result = ""
         for char in text:
