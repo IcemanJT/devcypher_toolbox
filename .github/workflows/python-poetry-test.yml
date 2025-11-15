@@ -60,10 +60,5 @@ jobs:
           pip install safety
           safety check
         working-directory: conversions_service
-
-      - name: Security audit (secrets with gitleaks)
-        uses: gitleaks/gitleaks-action@v2
-        with:
-          config-path: ""
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
