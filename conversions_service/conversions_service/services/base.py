@@ -3,6 +3,7 @@ from abc import ABC, abstractmethod
 
 class AbstractEncoder(ABC):
     name: str = None
+    is_symmetric: bool = False
 
     @classmethod
     def get_instance(cls):

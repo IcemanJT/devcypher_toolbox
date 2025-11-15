@@ -7,10 +7,10 @@ info:
     name: DevCypher Toolbox
     url: https://github.com/IcemanJT/devcypher_toolbox
 servers:
-  - url: http://localhost:5000
+  - url: http://localhost:8080
     description: Local development server
 paths:
-  /api/encrypt:
+  /encode:
     post:
       summary: Encrypt text
       description: Encrypts the provided text using the specified cipher method
@@ -22,10 +22,10 @@ paths:
             schema:
               type: object
               required:
-                - text
+                - data
                 - method
               properties:
-                text:
+                data:
                   type: string
                   description: Text to encrypt
                   example: "Hello World"
@@ -65,7 +65,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Error'
 
-  /api/decrypt:
+  /decode:
     post:
       summary: Decrypt text
       description: Decrypts the provided text using the specified cipher method
@@ -77,10 +77,10 @@ paths:
             schema:
               type: object
               required:
-                - text
+                - data
                 - method
               properties:
-                text:
+                data:
                   type: string
                   description: Text to decrypt
                   example: "Khoor Zruog"
@@ -89,12 +89,11 @@ paths:
                   enum: [caesar, atbash, rot13, base64]
                   description: Decryption method to use
                   example: "caesar"
-                shift:
-                  type: integer
-                  description: Shift value for Caesar cipher (required when method is caesar)
-                  minimum: 1
-                  maximum: 25
-                  example: 3
+                key:
+                  type: string
+                  description: Value representing the decryption key (e.g., shift value for Caesar cipher)
+                  example: "3"
+
       responses:
         '200':
           description: Successfully decrypted text
