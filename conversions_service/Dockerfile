@@ -11,6 +11,12 @@ RUN curl -sSL https://install.python-poetry.org | python3 - && \
 
 ENV PATH="/root/.local/bin:${PATH}"
 
+# Copy only the project metadata for dependency installation
+COPY conversions_service/pyproject.toml conversions_service/poetry.lock* ./conversions_service/
+
+# Switch into the project dir for Poetry
+WORKDIR /app/conversions_service
+
 COPY . .
 
 RUN poetry install --no-root --without dev
