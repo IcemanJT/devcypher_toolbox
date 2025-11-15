@@ -27,4 +27,6 @@ ENV PYTHONPATH=/app
 
 EXPOSE 8080
 
+WORKDIR /app
+
 CMD ["poetry", "run", "python", "-m", "conversions_service.app"]
