@@ -55,14 +55,10 @@ jobs:
             conversions_service/htmlcov
           if-no-files-found: ignore
 
-      - name: Export dependencies to requirements.txt
-        run: poetry export -f requirements.txt --output requirements.txt --without-hashes
-        working-directory: conversions_service
-
       - name: Security audit (dependencies with safety)
         run: |
           pip install safety
-          safety check -r requirements.txt
+          safety check
         working-directory: conversions_service
 
       - name: Security audit (secrets with gitleaks)
