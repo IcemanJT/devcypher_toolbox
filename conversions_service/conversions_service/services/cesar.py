@@ -1,7 +1,8 @@
 from base import AbstractEncoder
 
 class Cesar(AbstractEncoder):
-
+    name: str = "cesar"
+    is_symmetric: bool = True
     _instance = None
 
     def encode(self, data: str, key: str, **kwargs) -> str:

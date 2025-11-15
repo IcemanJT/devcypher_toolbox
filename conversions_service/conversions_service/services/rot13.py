@@ -1,7 +1,8 @@
 from cesar import Cesar
 
 class Rot13(Cesar):
-
+    name: str = "rot13"
+    is_symmetric: bool = True
     _instance = None
 
     def encode(self, data: str, key: str = None, **kwargs) -> str:

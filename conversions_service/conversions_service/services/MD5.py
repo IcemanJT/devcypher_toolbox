@@ -2,7 +2,8 @@ from base import AbstractEncoder
 import hashlib  
 
 class MD5(AbstractEncoder):
-
+    name: str = "md5"
+    is_symmetric: bool = False
     _instance = None
 
     def encode(self, data: str, key: str = None, **kwargs) -> str:

@@ -2,7 +2,8 @@ from base import AbstractEncoder
 import hashlib
 
 class Sha512(AbstractEncoder):
-
+    name: str = "sha512"
+    is_symmetric: bool = False
     _instance = None
 
     def encode(self, data: str, key: str = None, **kwargs) -> str:

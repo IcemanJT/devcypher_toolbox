@@ -1,7 +1,8 @@
 from base import AbstractEncoder
 
 class Atbash(AbstractEncoder):
-
+    name: str = "atbash"
+    is_symmetric: bool = True
     _instance = None
 
     def encode(self, data: str, key: str = None, **kwargs) -> str:
