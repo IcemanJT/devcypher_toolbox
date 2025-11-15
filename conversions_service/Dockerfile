@@ -16,6 +16,7 @@ COPY . .
 RUN poetry install --no-root --without dev
 
 ENV PORT=8080
+ENV ENV=prod
 ENV PYTHONPATH=/app
 
 EXPOSE 8080
