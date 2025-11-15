@@ -27,5 +27,5 @@ ENV PYTHONPATH=/app
 
 EXPOSE 8080
 
-ENTRYPOINT [ "/bin/bash", "ls"]
+ENTRYPOINT ["ls"]
 CMD ["poetry", "run", "python", "app.py"]
