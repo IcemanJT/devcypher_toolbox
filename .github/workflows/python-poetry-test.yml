@@ -55,6 +55,10 @@ jobs:
             conversions_service/htmlcov
           if-no-files-found: ignore
 
-      - name: Security audit (placeholder)
-        run: echo "Security checks not configured yet"
+      - name: Security audit (dependencies with safety)
+        run: |
+          pip install safety
+          safety check
         working-directory: conversions_service
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
