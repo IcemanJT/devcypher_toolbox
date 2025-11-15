@@ -1,5 +1,46 @@
-# Vue 3 + TypeScript + Vite
+# DevCypher Toolbox - Frontend
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Frontend for a web application that enables text encryption and decryption using various cryptographic methods.
 
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+## Description
+
+User interface for the DevCypher Toolbox application built with Vue.js 3 and TypeScript. The application communicates with a Flask backend API, offering an intuitive way to encrypt and decrypt texts using classical algorithms.
+
+## Tech Stack
+
+- **Vue.js 3** - application framework
+- **TypeScript** - static typing
+- **Vite** - build tool and dev server
+
+## Requirements
+
+- Node.js (v18 or newer)
+- npm or yarn
+
+## Installation and Setup
+
+### Install dependencies
+
+```bash
+npm install
+```
+
+### Run development server
+
+```bash
+npm run dev
+```
+
+The application will be available at `http://localhost:5173`
+
+### Build for production
+
+```bash
+npm run build
+```
+
+### Preview production build
+
+```bash
+npm run preview
+```
