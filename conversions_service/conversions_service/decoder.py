@@ -30,6 +30,3 @@ class Decoder:
 
     def rot13(self, text, key = None):
         return self.cesar(text, 13)
-
-    def base64(self, text, key = None):
-        return base64.b64decode(text.encode()).decode()

@@ -40,7 +40,7 @@ class EncodeApi:
 
     @property
     def available_decode_ciphers(self):
-        return list(filter(lambda encoder: encoder.is_symmetric, self.services.keys()))
+        return [name for name, encoder in self.services.items() if encoder.is_symmetric]
 
     @property
     def available_encode_ciphers(self):
