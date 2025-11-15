@@ -38,6 +38,7 @@ def decode():
     data = request.json
     return get_json_result(data, dec)
 
+
 @app.route('/encode/ciphers_list', methods=['GET'])
 def encode_ciphers_list():
     return enc.available_ciphers
@@ -47,5 +48,4 @@ def decode_ciphers_list():
     return dec.available_ciphers
 
 app.run(host='0.0.0.0', port=8080)
-
 
