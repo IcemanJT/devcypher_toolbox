@@ -2,6 +2,7 @@ from abc import ABC, abstractmethod
 
 
 class AbstractEncoder(ABC):
+    name: str = None
 
     @classmethod
     def get_instance(cls):

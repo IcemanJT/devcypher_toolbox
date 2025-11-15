@@ -1,0 +1,131 @@
+openapi: 3.1.0
+info:
+  title: DevCypher Toolbox API
+  description: REST API for text encryption and decryption using various cipher methods (Caesar, Atbash, ROT13, Base64)
+  version: 1.0.0
+  contact:
+    name: DevCypher Toolbox
+    url: https://github.com/IcemanJT/devcypher_toolbox
+servers:
+  - url: http://localhost:5000
+    description: Local development server
+paths:
+  /api/encrypt:
+    post:
+      summary: Encrypt text
+      description: Encrypts the provided text using the specified cipher method
+      operationId: encryptText
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - text
+                - method
+              properties:
+                text:
+                  type: string
+                  description: Text to encrypt
+                  example: "Hello World"
+                method:
+                  type: string
+                  enum: [caesar, atbash, rot13, base64]
+                  description: Encryption method to use
+                  example: "caesar"
+                shift:
+                  type: integer
+                  description: Shift value for Caesar cipher (required when method is caesar)
+                  minimum: 1
+                  maximum: 25
+                  example: 3
+      responses:
+        '200':
+          description: Successfully encrypted text
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: string
+                    description: Encrypted text
+                    example: "Khoor Zruog"
+        '400':
+          description: Bad request - invalid input
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /api/decrypt:
+    post:
+      summary: Decrypt text
+      description: Decrypts the provided text using the specified cipher method
+      operationId: decryptText
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - text
+                - method
+              properties:
+                text:
+                  type: string
+                  description: Text to decrypt
+                  example: "Khoor Zruog"
+                method:
+                  type: string
+                  enum: [caesar, atbash, rot13, base64]
+                  description: Decryption method to use
+                  example: "caesar"
+                shift:
+                  type: integer
+                  description: Shift value for Caesar cipher (required when method is caesar)
+                  minimum: 1
+                  maximum: 25
+                  example: 3
+      responses:
+        '200':
+          description: Successfully decrypted text
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: string
+                    description: Decrypted text
+                    example: "Hello World"
+        '400':
+          description: Bad request - invalid input
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+components:
+  schemas:
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Error message
+          example: "Invalid cipher method"
