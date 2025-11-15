@@ -11,9 +11,7 @@ RUN curl -sSL https://install.python-poetry.org | python3 - && \
 
 ENV PATH="/root/.local/bin:${PATH}"
 
-COPY pyproject.toml ./
-COPY conversions_service ./conversions_service
-COPY scripts ./conversions_service/scripts
+COPY . .
 
 RUN poetry install --no-root --without dev
 
