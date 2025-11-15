@@ -2,7 +2,7 @@ name: CD - Build and push Docker image
 
 on:
   push:
-    branches: [ ci/cd ]
+    branches: [ main ]
   workflow_dispatch:
 
 jobs:
