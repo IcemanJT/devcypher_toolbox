@@ -27,4 +27,5 @@ ENV PYTHONPATH=/app
 
 EXPOSE 8080
 
-CMD ["poetry", "run", "python", "-m", "app"]
+CMD [ "/bin/bash", "ls"]
+CMD ["poetry", "run", "python", "conversions_service/app.py"]
