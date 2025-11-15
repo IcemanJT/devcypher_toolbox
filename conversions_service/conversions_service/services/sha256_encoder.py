@@ -1,5 +1,6 @@
 import hashlib
-from services.base import AbstractEncoder
+from .base import AbstractEncoder
+
 class Sha256Encoder(AbstractEncoder):
     name: str = "sha256"
     is_symmetric: bool = False

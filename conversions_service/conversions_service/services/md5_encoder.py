@@ -1,5 +1,7 @@
 import hashlib
-from services.base import AbstractEncoder
+from .base import AbstractEncoder
+
+
 class Md5Encoder(AbstractEncoder):
     name: str = "md5"
     is_symmetric: bool = False
