@@ -17,7 +17,7 @@ COPY conversions_service/pyproject.toml conversions_service/poetry.lock* ./conve
 # Switch into the project dir for Poetry
 WORKDIR /app/conversions_service
 
-COPY . .
+COPY conversions_service .
 
 RUN poetry install --no-root --without dev
 
