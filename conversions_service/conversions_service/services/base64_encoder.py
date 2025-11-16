@@ -4,7 +4,6 @@ import base64
 from .base import AbstractEncoder
 
 
-
 class Base64Encoder(AbstractEncoder):
     name: str = "base64"
     is_symmetric: bool = True
