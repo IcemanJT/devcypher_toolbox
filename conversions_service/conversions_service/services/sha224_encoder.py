@@ -1,10 +1,9 @@
-from base import AbstractEncoder
+from .base import AbstractEncoder
 import hashlib
 
-class sha224(AbstractEncoder):
+class Sha224Encoder(AbstractEncoder):
     name: str = "sha224"
     is_symmetric: bool = False
-    _instance = None
 
     def encode(self, data: str, key: str = None, **kwargs) -> str:
         sha224 = hashlib.sha224()

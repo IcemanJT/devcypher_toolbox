@@ -1,10 +1,9 @@
-from base import AbstractEncoder
+from .base import AbstractEncoder
 import hashlib
 
-class Sha3_384(AbstractEncoder):
+class Sha3_384Encoder(AbstractEncoder):
     name: str = "sha3_384"
     is_symmetric: bool = False
-    _instance = None
 
     def encode(self, data: str, key: str = None, **kwargs) -> str:
         sha3_384_hash = hashlib.sha3_384()

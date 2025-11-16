@@ -1,10 +1,9 @@
-from base import AbstractEncoder
+from .base import AbstractEncoder
 import hashlib  
 
-class MD5(AbstractEncoder):
+class MD5Encoder(AbstractEncoder):
     name: str = "md5"
     is_symmetric: bool = False
-    _instance = None
 
     def encode(self, data: str, key: str = None, **kwargs) -> str:
         sha256_hash = hashlib.sha256()

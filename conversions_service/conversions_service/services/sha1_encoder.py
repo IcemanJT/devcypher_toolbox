@@ -1,10 +1,9 @@
-from base import AbstractEncoder
+from .base import AbstractEncoder
 import hashlib
 
-class Sha256(AbstractEncoder):
+class Sha1Encoder(AbstractEncoder):
     name: str = "sha1"
     is_symmetric: bool = False
-    _instance = None
 
     def encode(self, data: str, key: str = None, **kwargs) -> str:
         sha1_hash = hashlib.sha1()

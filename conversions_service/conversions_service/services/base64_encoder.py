@@ -1,7 +1,7 @@
 
 import base64
 
-from services.base import AbstractEncoder
+from .base import AbstractEncoder
 
 
 class Base64Encoder(AbstractEncoder):

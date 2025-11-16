@@ -1,10 +1,9 @@
-from base import AbstractEncoder
+from .base import AbstractEncoder
 import hashlib
 
-class Sha512(AbstractEncoder):
+class Sha512Encoder(AbstractEncoder):
     name: str = "sha512"
     is_symmetric: bool = False
-    _instance = None
 
     def encode(self, data: str, key: str = None, **kwargs) -> str:
         sha512_hash = hashlib.sha512()

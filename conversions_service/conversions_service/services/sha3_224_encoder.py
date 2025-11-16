@@ -1,11 +1,10 @@
-from base import AbstractEncoder
+from .base import AbstractEncoder
 import hashlib
 
-class Sha3_224(AbstractEncoder):
+class Sha3_224Encoder(AbstractEncoder):
     name: str = "sha3_224"
     is_symmetric: bool = False
-    _instance = None
-
+    
     def encode(self, data: str, key: str = None, **kwargs) -> str:
         sha3_224_hash = hashlib.sha3_224()
         sha3_224_hash.update(data.encode('utf-8'))

@@ -1,10 +1,9 @@
-from base import AbstractEncoder
+from .base import AbstractEncoder
 import hashlib
 
-class Blake2s(AbstractEncoder):
+class Blake2sEncoder(AbstractEncoder):
     name: str = "blake2s"
     is_symmetric: bool = False
-    _instance = None
 
     def encode(self, data: str, key: str = None, **kwargs) -> str:
         blake2s_hash = hashlib.blake2s()

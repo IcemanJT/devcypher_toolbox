@@ -1,10 +1,9 @@
-from base import AbstractEncoder
+from .base import AbstractEncoder
 import hashlib
 
-class shake_256(AbstractEncoder):
+class Shake_256Encoder(AbstractEncoder):
     name: str = "shake_256"
     is_symmetric: bool = False
-    _instance = None
 
     def encode(self, data: str, key: str = None, **kwargs) -> str:
         shake_256_hash = hashlib.shake_256()

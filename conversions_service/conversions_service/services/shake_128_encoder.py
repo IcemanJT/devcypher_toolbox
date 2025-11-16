@@ -1,10 +1,9 @@
-from base import AbstractEncoder
+from .base import AbstractEncoder
 import hashlib
 
-class Shake_128(AbstractEncoder):
+class Shake_128Encoder(AbstractEncoder):
     name: str = "shake_128"
     is_symmetric: bool = False
-    _instance = None
 
     def encode(self, data: str, key: str = None, **kwargs) -> str:
         shake_128_hash = hashlib.shake_128()
