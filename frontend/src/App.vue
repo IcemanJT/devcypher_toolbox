@@ -3,7 +3,7 @@ import { ref } from "vue";
 
 const inputText = ref("");
 const outputText = ref("");
-const algorithm = ref("");                  // 🔴 assume "cesar" everywhere
+const algorithm = ref("cesar");                  // 🔴 assume "cesar" everywhere
 const action = ref<"encode" | "decode">("encode");
 const key = ref<number | null>(null);            // 🔑 numeric shift
 const errorMsg = ref<string | null>(null);

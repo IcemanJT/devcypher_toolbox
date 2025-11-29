@@ -1,11 +1,20 @@
 from flask import Flask, request, jsonify
 from conversions_service.services.encode_api import EncodeApi
+from flask_cors import CORS 
 import logging
 import os
 
 app = Flask(__name__)
 logging.basicConfig(level=logging.INFO)
 encode_api = EncodeApi.get_instance()
+
+CORS(app, resources={
+    r"/*": {
+        "origins": [
+            "https://cipher-wn6q.onrender.com",
+        ]
+    }
+})
 
 @app.route('/hello', methods=['GET'])
 def hello_world():
