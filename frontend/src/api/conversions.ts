@@ -1,6 +1,6 @@
 import { ref } from "vue";
 
-const API_URL = "http://192.168.68.135:8080/";
+const API_URL = "https://devcypher-toolbox.onrender.com/";
 
 // reactive state
 const inputText = ref("");

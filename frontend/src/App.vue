@@ -16,7 +16,7 @@ async function processText() {
   outputText.value = "";
 
   try {
-    const url = `http://192.168.68.135:8080/${action.value}`;
+    const url = `https://devcypher-toolbox.onrender.com/${action.value}`;
 
     const payload: any = {
       data: inputText.value,
