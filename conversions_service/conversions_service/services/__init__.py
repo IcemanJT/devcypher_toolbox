@@ -3,7 +3,7 @@ from .atbash_encoder import AtbashEncoder
 from .blake2b_encoder import Blake2bEncoder
 from .blake2s_encoder import Blake2sEncoder
 from .cesar_encoder import CesarEncoder
-from .MD5_encoder import MD5Encoder
+from .md5_encoder import MD5Encoder
 from .rot13_encoder import Rot13Encoder
 from .sha1_encoder import Sha1Encoder
 from .sha3_224_encoder import Sha3_224Encoder

@@ -5,7 +5,7 @@ import os
 # Add parent directory to path to import modules
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'conversions_service')))
 
-from services.MD5_encoder import MD5Encoder
+from services.md5_encoder import MD5Encoder
 
 
 class TestMd5Encoder:
