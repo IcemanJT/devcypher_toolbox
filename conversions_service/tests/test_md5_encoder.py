@@ -5,7 +5,7 @@ import os
 # Add parent directory to path to import modules
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'conversions_service')))
 
-from services.MD5_encoder import Md5Encoder
+from services.MD5_encoder import MD5Encoder
 
 
 class TestMd5Encoder:
@@ -14,7 +14,7 @@ class TestMd5Encoder:
     @pytest.fixture(autouse=True)
     def setup(self):
         """Setup Md5Encoder instance for each test"""
-        self.encoder = Md5Encoder()
+        self.encoder = MD5Encoder()
 
     def test_md5_encode_simple_text(self):
         """Test encoding simple ASCII text to MD5 hash"""
