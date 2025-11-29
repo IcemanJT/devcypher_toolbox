@@ -1,14 +1,14 @@
+import hashlib
 from .base import AbstractEncoder
-import hashlib  
+import hashlib
 
 class MD5Encoder(AbstractEncoder):
     name: str = "md5"
     is_symmetric: bool = False
 
-    def encode(self, data: str, key: str = None, **kwargs) -> str:
-        sha256_hash = hashlib.sha256()
-        sha256_hash.update(data.encode('utf-8'))
-        return sha256_hash.hexdigest()
+    def encode(self, data: str, key: str, **kwargs) -> str:
+        md5_hash = hashlib.md5(data.encode('utf-8'))
+        return md5_hash.hexdigest()
 
-    def decode(self, data: str, key: str = None, **kwargs) -> str:
-        raise NotImplementedError("SHA-256 is a one-way hash function and cannot be decoded")
+    def decode(self, data: str, key: str, **kwargs) -> str:
+        raise NotImplementedError("MD5 is a one-way hash function and cannot be decoded.")
