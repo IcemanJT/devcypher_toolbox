@@ -6,7 +6,7 @@ authors = [
     {name = "Radosław Pikul",email = "rapikul111@gmail.com"}
 ]
 readme = "README.md"
-requires-python = ">=3.9,<4.0"
+requires-python = ">=3.12,<4.0"
 dependencies = [
     "flask (>=3.1.2,<4.0.0)",
     "waitress (>=3.0.2,<4.0.0)",
@@ -18,11 +18,10 @@ dependencies = [
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
 
-[dependency-groups]
-dev = [
-    "pytest (>=8.4.2,<9.0.0)",
-    "pytest-cov (>=4.1.0,<5.0.0)",
-    "ruff (>=0.6.9,<0.7.0)",
-    "black (>=24.8.0,<25.0.0)",
-    "coverage (>=7.6.1,<8.0.0)"
-]
+[tool.poetry.group.dev.dependencies]
+pytest = "^9.0.1"
+pytest-cov = "^7.0.0"
+ruff = "^0.14.7"
+black = "^25.11.0"
+coverage = "^7.12.0"
+
