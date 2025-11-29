@@ -1,8 +1,8 @@
 from flask import Flask, request, jsonify
-from services.encode_api import EncodeApi
+from conversions_service.services.encode_api import EncodeApi
 import logging
 import os
-
+gi
 app = Flask(__name__)
 logging.basicConfig(level=logging.INFO)
 encode_api = EncodeApi.get_instance()
