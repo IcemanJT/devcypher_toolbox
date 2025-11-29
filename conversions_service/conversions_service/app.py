@@ -1,22 +1,10 @@
 from flask import Flask, request, jsonify
-from flask_cors import CORS
 from services.encode_api import EncodeApi
 import logging
 import os
 
 app = Flask(__name__)
 logging.basicConfig(level=logging.INFO)
-
-# allow local frontend
-CORS(app, resources={
-    r"/*": {
-        "origins": [
-            "http://localhost:5173",      # Vite dev
-            "http://192.168.68.135:5173", # if you open frontend via LAN
-        ]
-    }
-})
-
 encode_api = EncodeApi.get_instance()
 
 @app.route('/hello', methods=['GET'])
