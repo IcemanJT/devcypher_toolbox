@@ -1,6 +1,6 @@
 import hashlib
 from .base import AbstractEncoder
-import hashlib  
+import hashlib
 
 class MD5Encoder(AbstractEncoder):
     name: str = "md5"
