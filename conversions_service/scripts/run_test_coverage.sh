@@ -4,5 +4,6 @@ set -e
 poetry run pytest \
   --cov=conversions_service \
   --cov-report=xml:coverage.xml \
+  --cov-fail-under=80 \
   --cov-report=html:htmlcov \
   tests
