@@ -6,11 +6,12 @@ authors = [
     {name = "Radosław Pikul",email = "rapikul111@gmail.com"}
 ]
 readme = "README.md"
-requires-python = ">=3.9"
+requires-python = ">=3.9,<4.0"
 dependencies = [
     "flask (>=3.1.2,<4.0.0)",
     "waitress (>=3.0.2,<4.0.0)",
-    "pytest-cov (>=1.0.0,<8.0.0)"
+    "pytest-cov (>=1.0.0,<8.0.0)",
+    "flask-cors (>=6.0.1,<7.0.0)"
 ]
 
 [build-system]
