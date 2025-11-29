@@ -1,12 +1,22 @@
-import os
-
 from flask import Flask, request, jsonify
-
-from conversions_service.services.encode_api import EncodeApi
+from flask_cors import CORS
+from services.encode_api import EncodeApi
 import logging
+import os
 
 app = Flask(__name__)
 logging.basicConfig(level=logging.INFO)
+
+# allow local frontend
+CORS(app, resources={
+    r"/*": {
+        "origins": [
+            "http://localhost:5173",      # Vite dev
+            "http://192.168.68.135:5173", # if you open frontend via LAN
+        ]
+    }
+})
+
 encode_api = EncodeApi.get_instance()
 
 @app.route('/hello', methods=['GET'])
@@ -16,31 +26,40 @@ def hello_world():
 @app.route('/encode', methods=['POST'])
 def encode():
     if not request.is_json:
-        return jsonify({"error":"Content type must be application/json"}), 400
+        return jsonify({"error": "Content type must be application/json"}), 400
 
-    data = request.json
-    return encode_api.encode(data)
+    data = request.get_json()
+    try:
+        result = encode_api.encode(data)
+        return jsonify({"result": result})
+    except Exception as e:
+        app.logger.exception("Error in /encode")
+        return jsonify({"error": str(e)}), 400
 
 @app.route('/decode', methods=['POST'])
 def decode():
     if not request.is_json:
-        return jsonify({"error":"Content type must be application/json"}), 400
+        return jsonify({"error": "Content type must be application/json"}), 400
 
-    data = request.json
-    return encode_api.decode(data)
+    data = request.get_json()
+    try:
+        result = encode_api.decode(data)
+        return jsonify({"result": result})
+    except Exception as e:
+        app.logger.exception("Error in /decode")
+        return jsonify({"error": str(e)}), 400
 
 
 @app.route('/encode/ciphers_list', methods=['GET'])
 def encode_ciphers_list():
-    return encode_api.available_encode_ciphers
+    return jsonify(encode_api.available_encode_ciphers)
 
 @app.route('/decode/ciphers_list', methods=['GET'])
 def decode_ciphers_list():
-    return encode_api.available_decode_ciphers
+    return jsonify(encode_api.available_decode_ciphers)
 
 if __name__ == '__main__' and os.getenv('ENV') == 'prod':
     import waitress
     waitress.serve(app, host='0.0.0.0', port=8080)
 else:
     app.run(host='0.0.0.0', port=8080, debug=True)
-
