@@ -1,9 +1,18 @@
 <script setup lang="ts">
 import { start } from "../api/conversions";
+
+const handleClick = async () => {
+  try {
+    const result = await start();
+    alert("Wynik: " + result); // or show it somewhere else in the UI
+  } catch (err: any) {
+    alert("Błąd: " + (err?.message || "Unknown error"));
+  }
+};
 </script>
 
 <template>
-  <button class="start-btn" @click="start">START</button>
+  <button class="start-btn" @click="handleClick">START</button>
 </template>
 
 <style scoped>
