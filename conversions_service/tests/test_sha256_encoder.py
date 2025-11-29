@@ -139,7 +139,7 @@ class TestSha256Encoder:
 
     def test_sha256_vs_md5_different_outputs(self):
         """Test that SHA256 produces different output than MD5 for same input"""
-        from services.md5_encoder import Md5Encoder
+        from services.MD5_encoder import Md5Encoder
 
         md5_encoder = Md5Encoder()
         input_text = "test"
