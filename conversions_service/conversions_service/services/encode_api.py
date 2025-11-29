@@ -17,7 +17,7 @@ class EncodeApi:
 
 
     def initialize(self):
-        native_dir = importlib.import_module(f"conversions_service.services")
+        native_dir = importlib.import_module(f"services")
         self.services = {}
         for service_name in dir(native_dir):
             if service_name.endswith("Encoder"):
